@@ -1,9 +1,7 @@
 <template>
-  <q-page class="index">
     <div>
       Experience
     </div>
-  </q-page>
 </template>
 
 <style lang="stylus">

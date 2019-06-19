@@ -36,10 +36,16 @@ module.exports = function (ctx) {
         'QList',
         'QItem',
         'QItemSection',
+        'QItemLabel',
         'QIcon',
+        'QImg',
         'QBtn',
         'QTabs',
-        'QRouteTab'
+        'QRouteTab',
+        'QCard',
+        'QTabPanels',
+        'QTabPanel',
+        'QSeparator'
       ],
 
       directives: [
