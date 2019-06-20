@@ -1,6 +1,6 @@
 <template>
   <div class="column flex-center q-gutter-sm">
-    <q-card v-for="diploma in diplomas" :key="diploma.title" class="diploma">
+    <q-card v-for="diploma in $t('diplomas')" :key="diploma.title" class="diploma">
       <q-list>
         <q-item>
           <q-item-section >
@@ -54,24 +54,6 @@ export default {
 
   data () {
     return {
-      diplomas: [
-        {
-          title: 'Diplôme d\'Ingénieur',
-          subtitle: 'Electronique et informatique industrielle (par apprentissage)',
-          place: 'Université Joseph Fourier – Grenoble, France',
-          school: 'Polytech Grenoble',
-          year: 2012,
-          logoPath: 'statics/logo_polytech.jpg'
-        },
-        {
-          title: 'DUT GEII',
-          subtitle: 'Electronique et informatique industrielle ',
-          place: 'Université Joseph Fourier – Grenoble, France',
-          school: 'IUT 1 Grenoble',
-          year: 2009,
-          logoPath: 'statics/logo_iut.jpg'
-        }
-      ]
     }
   }
 }

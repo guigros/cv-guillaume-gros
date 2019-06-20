@@ -41,6 +41,7 @@ module.exports = function (ctx) {
         'QImg',
         'QBtn',
         'QTabs',
+        'QTab',
         'QRouteTab',
         'QCard',
         'QTabPanels',
@@ -48,7 +49,8 @@ module.exports = function (ctx) {
         'QSeparator',
         'QTimeline',
         'QTimelineEntry',
-        'QScrollArea'
+        'QScrollArea',
+        'QRating'
       ],
 
       directives: [
@@ -58,10 +60,10 @@ module.exports = function (ctx) {
       // Quasar plugins
       plugins: [
         'Notify'
-      ]
+      ],
 
       // iconSet: 'ionicons-v4'
-      // lang: 'de' // Quasar language
+      lang: 'fr' // Quasar language
     },
 
     supportIE: false,

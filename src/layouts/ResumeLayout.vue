@@ -2,19 +2,76 @@
   <q-layout view="hHh LpR fFf">
     <q-page-container>
       <q-page class="row q-col-gutter-sm">
-        <div class="left col-sm-4 col-xs-12 flex flex-center">
-          <ContactBox/>
+        <div class="fixed-top-right q-pa-none">
+          <q-tabs
+            dense
+            switch-indicator
+            class="bg-grey-2"
+            v-model="currentLang"
+          >
+            <q-tab v-for="lang in availableLang" :key="lang.label" :name="lang.value" :label="lang.label" :ripple="false"/>
+          </q-tabs>
+        </div>
+        <div class="left col-sm-4 col-xs-12">
+          <div class="column q-mt-sm">
+            <q-avatar size="200px" class="self-center">
+              <img src="statics/avatar.jpg">
+            </q-avatar>
+            <div class="profil q-ma-sm text-body1 text-weight-medium text-justify">
+              {{ $t('profile') }}
+            </div>
+            <q-list class="q-ma-sm rounded-borders" dense bordered>
+              <q-item-label header>{{ $t('skill') }}</q-item-label>
+              <q-item v-for="skill in skills" :key="skill.desc">
+                <q-item-section>
+                  {{ skill.desc }}
+                </q-item-section>
+                <q-item-section>
+                  <q-rating v-model="skill.rate"
+                    size="1em"
+                    color="orange"
+                    readonly
+                  />
+                </q-item-section>
+              </q-item>
+            </q-list>
+            <q-list class="q-ma-sm rounded-borders" dense bordered>
+              <q-item-label header>Contacts</q-item-label>
+              <q-item>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="eva-home"/>
+                </q-item-section>
+                <q-item-section>7 Chemin des tuileries<br>38570, Goncelin, France</q-item-section>
+              </q-item>
+              <q-item>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="eva-phone"/>
+                </q-item-section>
+                <q-item-section>+590690951361</q-item-section>
+              </q-item>
+              <q-item>
+                <q-item-section avatar>
+                  <q-icon color="primary" name="eva-email"/>
+                </q-item-section>
+                <q-item-section>e.guillaume.gros@gmail.com</q-item-section>
+              </q-item>
+            </q-list>
+            <div class="row justify-center q-ma-sm q-gutter-x-md">
+                <q-btn outline round color="primary" icon="eva-github" />
+                <q-btn outline round color="primary" icon="eva-linkedin" />
+            </div>
+          </div>
         </div>
         <div class="right col-sm-8 col-xs-12">
             <q-tabs active-color="primary">
               <q-route-tab
-                label="Experience"
+                :label="$t('experience')"
                 icon="location_city"
                 to="experience"
                 exact
               />
               <q-route-tab
-                label="Education"
+                :label="$t('education')"
                 icon="school"
                 to="education"
                 exact
@@ -31,6 +88,8 @@
 </template>
 
 <style lang="stylus">
+.rb
+  border 2px solid red
 .left
   //border 2px solid magenta
   //max-width 35%
@@ -40,21 +99,59 @@
 </style>
 
 <script>
-import ContactBox from '../components/ContactBox'
-
 export default {
-  name: 'MyLayout',
+  name: 'ResumeLayout',
 
-  components: {
-    ContactBox
+  mounted () {
+    this.currentLang = this.$i18n.locale = this.$q.lang.isoName
   },
 
   data () {
     return {
+      availableLang: [
+        {
+          label: 'FR',
+          value: 'fr'
+        },
+        {
+          label: 'EN',
+          value: 'en-us'
+        }
+      ],
+      currentLang: '',
+      skills: [
+        {
+          desc: 'C/C++',
+          rate: 3
+        },
+        {
+          desc: 'C#',
+          rate: 3
+        },
+        {
+          desc: 'Javascript',
+          rate: 4
+        },
+        {
+          desc: 'HTML5/CSS3',
+          rate: 3
+        },
+        {
+          desc: 'Python',
+          rate: 2
+        }
+      ]
     }
   },
 
-  methods: {
+  watch: {
+    currentLang (newLang) {
+      this.$i18n.locale = newLang
+
+      import(`quasar/lang/${newLang}`).then(language => {
+        this.$q.lang.set(language.default)
+      })
+    }
   },
 
   computed: {
