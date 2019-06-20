@@ -12,7 +12,7 @@ export default {
   education: 'Education',
   diplomas: [
     {
-      title: 'Master\'s degree in engineering DEGREE IN ENGINEERING',
+      title: 'Master\'s degree in engineering',
       subtitle: 'Apprenticeship section: electronics and industrial IT ',
       place: 'Joseph Fourier university – Grenoble, France',
       school: 'Polytech Grenoble',
@@ -63,7 +63,7 @@ export default {
       date: 'Sept. 2015 – Feb. 2016',
       title: 'Software development engineer',
       description: `<b>Consultant for SNCF</b><br>
-                    Web application prototyping to manage request from IT Security department<br>
+                    Web application prototyping to manage requests from IT Security department<br>
                     <ul>
                     <li>Développement Back-end et Front-end</li>
                     </ul>
