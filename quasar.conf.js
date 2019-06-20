@@ -45,7 +45,9 @@ module.exports = function (ctx) {
         'QCard',
         'QTabPanels',
         'QTabPanel',
-        'QSeparator'
+        'QSeparator',
+        'QTimeline',
+        'QTimelineEntry'
       ],
 
       directives: [
