@@ -57,8 +57,8 @@
               </q-item>
             </q-list>
             <div class="row justify-center q-ma-sm q-gutter-x-md">
-                <q-btn outline round color="primary" icon="eva-github" />
-                <q-btn outline round color="primary" icon="eva-linkedin" />
+                <q-btn outline round color="primary" icon="eva-github" @click="goTo(githubUrl)"/>
+                <q-btn outline round color="primary" icon="eva-linkedin" @click="goTo(linkedInUrl)"/>
             </div>
           </div>
         </div>
@@ -99,6 +99,8 @@
 </style>
 
 <script>
+import { openURL } from 'quasar'
+
 export default {
   name: 'ResumeLayout',
 
@@ -108,6 +110,8 @@ export default {
 
   data () {
     return {
+      githubUrl: 'https://github.com/guigros',
+      linkedInUrl: 'https://www.linkedin.com/in/guillaume-gros-2203',
       availableLang: [
         {
           label: 'FR',
@@ -141,6 +145,12 @@ export default {
           rate: 2
         }
       ]
+    }
+  },
+
+  methods: {
+    goTo (url) {
+      openURL(url)
     }
   },
 

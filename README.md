@@ -1,3 +1,1 @@
-# Quasar App
-
-> WIP
+# An interactive resume built using Quasar Framewrok
