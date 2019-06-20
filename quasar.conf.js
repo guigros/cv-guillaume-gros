@@ -47,7 +47,8 @@ module.exports = function (ctx) {
         'QTabPanel',
         'QSeparator',
         'QTimeline',
-        'QTimelineEntry'
+        'QTimelineEntry',
+        'QScrollArea'
       ],
 
       directives: [

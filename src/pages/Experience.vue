@@ -2,7 +2,7 @@
   <div class="q-ml-sm">
     <q-timeline layout="dense" side="right" color="primary">
         <q-timeline-entry v-for="job in jobs" :key="job.date"
-          :title="job.title"
+          :title="getTitle(job)"
           :subtitle="job.date"
         >
           <p v-html="job.description"></p>
@@ -15,14 +15,8 @@
 </style>
 
 <script>
-// import ContactBox from '../components/ContactBox'
-
 export default {
   name: 'Experience',
-
-  components: {
-    // ContactBox
-  },
 
   mounted () {
   },
@@ -54,7 +48,7 @@ export default {
                         <li>Développement et configuration sur cible Zynq (Xilinx)</li>
                         <li>Développement d’une interface de tests pour un système électronique de sonar</li>
                         </ul>`,
-          company: 'Posera',
+          company: 'Centum Adeneo',
           place: 'Montréal - Canada',
           logoPath: ''
         },
@@ -89,6 +83,12 @@ export default {
           logoPath: ''
         }
       ]
+    }
+  },
+
+  methods: {
+    getTitle (job) {
+      return job.company + ' - ' + job.title
     }
   }
 }

@@ -21,7 +21,9 @@
               />
             </q-tabs>
           <q-separator/>
-          <router-view class="q-mt-sm"/>
+          <q-scroll-area class="flex" style="height: 90vh;" :thumb-style="thumbStyle">
+            <router-view class="q-mt-sm"/>
+          </q-scroll-area>
         </div>
       </q-page>
     </q-page-container>
@@ -29,8 +31,6 @@
 </template>
 
 <style lang="stylus">
-.router-view
-  //border 2px solid red
 .left
   //border 2px solid magenta
   //max-width 35%
@@ -55,6 +55,18 @@ export default {
   },
 
   methods: {
+  },
+
+  computed: {
+    thumbStyle () {
+      return {
+        right: '2px',
+        borderRadius: '5px',
+        backgroundColor: '#b3d5f2',
+        width: '5px',
+        opacity: 0.75
+      }
+    }
   }
 }
 </script>
