@@ -1,6 +1,15 @@
 # An interactive resume built using Quasar Framewrok
 
--> [See live version here](https://guillaumegros.com)
+Deploy with Google Hosting at [https://guillaumegros.com](https://guillaumegros.com)
+
+Install dependencies :
+npm install
+
+Build :
+quasar build -m pwa
+
+Deploy :
+firebase deploy
 
 ## License
 
